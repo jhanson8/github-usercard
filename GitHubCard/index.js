@@ -29,7 +29,8 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+
+
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -119,6 +120,39 @@ axios
     // });
 
   });
+
+
+  //
+  const followersArray = ['https://api.github.com/users/matthews7', 'https://api.github.com/users/arashhaji', 'https://api.github.com/users/lou34964', 'https://api.github.com/users/davebettswebdev', 'https://api.github.com/users/aalvinlin'];
+
+
+followersArray.forEach(link => {
+  axios
+  .get(link)
+  .then(response => {
+      console.log(response.data);
+      followingCard = gitCard(response.data);
+      cards.appendChild(followingCard);
+      // response.data.forEach(item => {
+      //   let followingCard = gitCard(item);
+      //   cards.appendChild(followingCard);
+      });
+});
+
+  // axios
+  //   .get("https://api.github.com/users/jhanson8/followers")
+  //   .then(response => {
+  //     console.log(response.data);
+  //     response.data.forEach(item => {
+  //       let followingCard = gitCard(item);
+  //       cards.appendChild(followingCard);
+  //     });
+  //   });
+
+
+
+
+
 
 
 /* List of LS Instructors Github username's:
